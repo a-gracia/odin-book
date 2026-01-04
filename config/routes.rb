@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get "follows/create"
   get "users/index"
   get "posts/index"
   devise_for :users
@@ -16,4 +17,5 @@ Rails.application.routes.draw do
   root "posts#index"
   resources :users, only: [ :index ]
   resources :posts
+  resources :follows, only: [ :create ]
 end

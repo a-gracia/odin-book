@@ -2,7 +2,10 @@ class PostsController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @posts = current_user.posts.order(created_at: :desc)
+    my_posts = current_user.posts
+    followed_posts = Post.where(user_id: current_user.being_follower.accepted.select(:followed_id))
+
+    @posts = (my_posts + followed_posts).reverse
   end
 
   def new

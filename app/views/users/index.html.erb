@@ -3,4 +3,5 @@
   <p>
     <%= user.email %>
   </p>
+  <%= button_to "Follow", follows_path, class: "button", params: {followed_id: user.id} %>
 <% end %>
