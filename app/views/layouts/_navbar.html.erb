@@ -1,0 +1,30 @@
+<nav class="navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <%= link_to "ODINBOOK", posts_path, class: "navbar-item" %>
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+  <div id="navbarBasicExample" class="navbar-menu">
+    <div class="navbar-start">
+      <%= link_to "Home", posts_path, class: "navbar-item" %>
+      <%= link_to "New post", new_post_path, class: "navbar-item" %>
+      <%= link_to "Users", users_path, class: "navbar-item" %>
+    </div>
+    <div class="navbar-end">
+      <div class="navbar-item">
+        <div class="buttons">
+          <% if user_signed_in? %>
+            <%= button_to "Log out", destroy_user_session_path, class: "button is-primary", method: :delete %>
+          <% else %>
+            <%= link_to "Sign up", new_user_registration_path, class: "button is-primary" %>
+            <%= link_to "Log in", new_user_session_path, class: "button is-light" %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>

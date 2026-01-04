@@ -1,0 +1,6 @@
+<h1 class="title is-1">New post</h1>
+<%= form_with model: @post do |f| %>
+  <p><%= f.label :body, "Say something!" %></p>
+  <p><%= f.text_area :body %></p>
+  <p><%= f.submit %></p>
+<% end %>

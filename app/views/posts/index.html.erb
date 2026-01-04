@@ -1,0 +1,7 @@
+<h1 class="title is-1">Posts</h1>
+<% @posts.each do |post| %>
+  <div>
+    <p><%= post.user.email %> says:</p>
+    <p><%= post.body %></p>
+  </div>
+<% end %>
