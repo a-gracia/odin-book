@@ -1,6 +1,24 @@
 <h1 class="title is-1">New post</h1>
 <%= form_with model: @post do |f| %>
-  <p><%= f.label :body, "Say something!" %></p>
-  <p><%= f.text_area :body %></p>
-  <p><%= f.submit %></p>
+  <article class="media">
+    <figure class="media-left">
+      <p class="image is-64x64">
+        <img src="https://bulma.io/assets/images/placeholders/128x128.png" />
+      </p>
+    </figure>
+    <div class="media-content">
+      <div class="field">
+        <p class="control">
+          <%= f.text_area :body, class: "textarea", placeholder: "Add a comment..." %>
+        </p>
+      </div>
+      <nav class="level">
+        <div class="level-left">
+          <div class="level-item">
+            <%= f.submit "Submit", class: "button is-info" %>
+          </div>
+        </div>
+      </nav>
+    </div>
+  </article>
 <% end %>

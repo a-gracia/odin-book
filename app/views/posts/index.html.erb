@@ -1,7 +1,6 @@
+<% content_for(:title, "Feed") %>
 <h1 class="title is-1">Posts</h1>
+<%# Agregar new post aqui%>
 <% @posts.each do |post| %>
-  <div>
-    <p><%= post.user.email %> says:</p>
-    <p><%= post.body %></p>
-  </div>
+  <%= render "post", post: post %>
 <% end %>
