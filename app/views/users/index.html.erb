@@ -1,7 +1,6 @@
-<h1 class="title is-1">Users</h1>
-<% @users.each do |user| %>
-  <p>
-    <%= user.email %>
-  </p>
-  <%= button_to "Follow", follows_path, class: "button", params: {followed_id: user.id} %>
-<% end %>
+<div class="container">
+  <h1 class="title is-1">Users</h1>
+  <% @users.each do |user| %>
+    <%= render "user", user: user %>
+  <% end %>
+</div>

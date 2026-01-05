@@ -11,6 +11,13 @@ class User < ApplicationRecord
   has_many :being_follower, class_name: "Follow", foreign_key: :follower_id
   has_many :following, through: :being_follower, source: :followed
 
+  has_many :accepted_follows, -> { accepted }, class_name: "Follow", foreign_key: :follower_id
+  has_many :following_accepted, through: :accepted_follows, source: :followed
+
+  has_many :requested_follows, -> { requested }, class_name: "Follow", foreign_key: :follower_id
+  has_many :following_requested, through: :requested_follows, source: :followed
+
+
   has_one_attached :profile_picture
 
   def get_profile_picture
