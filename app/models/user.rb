@@ -11,6 +11,15 @@ class User < ApplicationRecord
   has_many :being_follower, class_name: "Follow", foreign_key: :follower_id
   has_many :following, through: :being_follower, source: :followed
 
+  has_one_attached :profile_picture
+
+  def get_profile_picture
+    if profile_picture.attached?
+      profile_picture
+    else
+      "https://api.dicebear.com/9.x/big-smile/svg?seed=#{id}"
+    end
+  end
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable

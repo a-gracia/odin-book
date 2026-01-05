@@ -7,14 +7,16 @@
   <div class="media-content">
     <div class="content">
       <p>
-        <strong><%= post.user.email %></strong>
+        <strong><%= link_to post.user.email, post.user %></strong>
         <br />
         <%= post.body %>
         <br />
-        <small><a>Like (2)</a> · <a>Reply</a> · <% if post.user == current_user %><a>Delete</a> · <% end %><%= post.created_at %></small>
+        <small><a>Like (<%= post.likes.count %>)</a> · <a>Reply</a> · <% if post.user == current_user %><a>Delete</a> · <% end %><%= post.created_at %></small>
       </p>
     </div>
-    <%= render "comment" %>
+    <% post.comments.each do |comment|%>
+      <%= render "comment", comment: comment %>
+    <% end %>
   </div>
 </article>
 <%= render "new_comment" %>

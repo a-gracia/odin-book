@@ -1,0 +1,42 @@
+<section class="hero is-link">
+  <div class="hero-body columns">
+    <div class="column">
+      <figure class="image is-128x128"><%= image_tag @user.get_profile_picture, class: "is-rounded" %></figure>
+    </div>
+    <div class="column">
+      <p class="title"><%= @user.email%></p>
+    </div>
+  </div>
+</section>
+<nav class="level">
+  <div class="level-item has-text-centered">
+    <div>
+      <p class="heading">Posts</p>
+      <p class="title"><%= @user.posts.count %></p>
+    </div>
+  </div>
+  <div class="level-item has-text-centered">
+    <div>
+      <p class="heading">Following</p>
+      <p class="title"><%= @user.following.count %></p>
+    </div>
+  </div>
+  <div class="level-item has-text-centered">
+    <div>
+      <p class="heading">Followers</p>
+      <p class="title"><%= @user.followers.count %></p>
+    </div>
+  </div>
+  <div class="level-item has-text-centered">
+    <div>
+      <p class="heading">Likes</p>
+      <p class="title"><%= @user.likes.count %></p>
+    </div>
+  </div>
+</nav>
+<section class="section">
+  <h1 class="title">Posts</h1>
+  <% @user.posts.order(created_at: :desc).each do |post| %>
+    <%= render "post", post: post %>
+  <% end %>
+</section>

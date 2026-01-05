@@ -7,15 +7,11 @@
   <div class="media-content">
     <div class="content">
       <p>
-        <strong>Kayli Eunice </strong>
+        <strong><%= comment.user.email %></strong>
         <br />
-        Sed convallis scelerisque mauris, non pulvinar nunc mattis vel.
-        Maecenas varius felis sit amet magna vestibulum euismod malesuada
-        cursus libero. Vestibulum ante ipsum primis in faucibus orci luctus
-        et ultrices posuere cubilia Curae; Phasellus lacinia non nisl id
-        feugiat.
+        <%= comment.body %>
         <br />
-        <small>2 hrs</small>
+        <small><%= comment.created_at %></small>
       </p>
     </div>
   </div>
