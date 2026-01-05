@@ -3,7 +3,7 @@ class PostsController < ApplicationController
 
   def index
     my_posts = current_user.posts
-    followed_posts = Post.where(user_id: current_user.being_follower.accepted.select(:followed_id))
+    followed_posts = Post.where(user: current_user.following_accepted)
 
     @posts = (my_posts + followed_posts).reverse
   end

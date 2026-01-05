@@ -11,7 +11,14 @@
         <br />
         <%= post.body %>
         <br />
-        <small><a>Like (<%= post.likes.count %>)</a> · <a>Reply</a> · <% if post.user == current_user %><a>Delete</a> · <% end %><%= post.created_at %></small>
+        <small>
+          <% if current_user.liked_posts.include? post %>
+            <%= button_to "Liked (#{post.likes.count})", like_path(2), method: :delete, params: {user: current_user, post: post} %>
+          <% else %>
+            <%= button_to "Like (#{post.likes.count})", likes_path, params: {user: current_user, post: post} %>
+          <% end %>
+          · <a>Reply</a> · <% if post.user == current_user %><a>Delete</a> · <% end %><%= post.created_at %>
+        </small>
       </p>
     </div>
     <% post.comments.each do |comment|%>
@@ -19,4 +26,4 @@
     <% end %>
   </div>
 </article>
-<%= render "new_comment" %>
+<%= render "new_comment", post: post %>
