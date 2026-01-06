@@ -265,6 +265,11 @@ GEM
     pg (1.6.3-aarch64-linux-musl)
     pg (1.6.3-x86_64-linux)
     pg (1.6.3-x86_64-linux-musl)
+    postmark (1.25.1)
+      json
+    postmark-rails (0.22.1)
+      actionmailer (>= 3.0.0)
+      postmark (>= 1.21.3, < 2.0)
     pp (0.6.3)
       prettyprint
     prettyprint (0.2.0)
@@ -467,6 +472,7 @@ DEPENDENCIES
   omniauth-github
   omniauth-rails_csrf_protection (~> 1.0)
   pg (~> 1.1)
+  postmark-rails (~> 0.22.1)
   propshaft
   puma (>= 5.0)
   rails (~> 8.1.1)
