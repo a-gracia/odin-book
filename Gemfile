@@ -71,3 +71,10 @@ end
 gem "devise", "~> 4.9"
 
 gem "minitest", "< 6"
+
+gem "omniauth"
+gem "omniauth-github"
+
+gem "figaro", "~> 1.3"
+
+gem "omniauth-rails_csrf_protection", "~> 1.0"
