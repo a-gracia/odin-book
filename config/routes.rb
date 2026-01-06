@@ -1,11 +1,4 @@
 Rails.application.routes.draw do
-  root "posts#index"
-  resources :users, only: [ :index, :show ]
-  resources :posts
-  resources :follows, only: [ :create, :destroy, :update ]
-  resources :likes, only: [ :create, :destroy ]
-  resources :comments, only: [ :create ]
-
   devise_for :users
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
@@ -18,4 +11,10 @@ Rails.application.routes.draw do
   # get "service-worker" => "rails/pwa#service_worker", as: :pwa_service_worker
 
   # Defines the root path route ("/")
+  root "posts#index"
+  resources :users, only: [ :index, :show ]
+  resources :posts
+  resources :follows, only: [ :create, :destroy ]
+  resources :likes, only: [ :create, :destroy ]
+  resources :comments, only: [ :create ]
 end

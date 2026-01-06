@@ -3,7 +3,9 @@
 one:
   user: one
   post: one
+  body: "comment 1"
 
 two:
   user: two
   post: two
+  body: "comment 2"

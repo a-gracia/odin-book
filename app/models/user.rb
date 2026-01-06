@@ -18,6 +18,7 @@ class User < ApplicationRecord
   has_many :requested_follows, -> { requested }, class_name: "Follow", foreign_key: :follower_id
   has_many :following_requested, through: :requested_follows, source: :followed
 
+  after_create -> { UserMailer.with(user: self).welcome_email.deliver_later }
 
   has_one_attached :profile_picture
 
