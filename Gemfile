@@ -70,7 +70,7 @@ end
 
 gem "devise", "~> 4.9"
 
-gem "minitest", "< 6"
+gem "minitest", "< 7"
 
 gem "omniauth"
 gem "omniauth-github"
