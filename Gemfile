@@ -77,6 +77,6 @@ gem "omniauth-github"
 
 gem "figaro", "~> 1.3"
 
-gem "omniauth-rails_csrf_protection", "~> 1.0"
+gem "omniauth-rails_csrf_protection", "~> 2.0"
 
 gem "postmark-rails", "~> 0.22.1"
